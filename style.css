@@ -1,0 +1,34 @@
+/* 
+    Document   : style
+    Created on : 11-mar-2011, 23:54:17
+    Author     : Lenscak, José Francisco <Malguzt>
+    Description:
+        Simple style for my sanke.
+*/
+
+root { 
+  display: block;
+}
+
+body{
+  background-image: url(argentina_back_flag.jpg);
+  background-repeat: no-repeat;
+  background-color: black;
+}
+
+p{
+  color: white;
+}
+
+#data{
+  float: right;
+}
+
+#pause{
+  color: red;
+  font-size: 100px;
+  position: absolute;
+  top: 200px;
+  left: 200px;
+  display: none;
+}
