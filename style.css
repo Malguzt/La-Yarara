@@ -43,12 +43,6 @@ p{
   display: none;
 }
 
-#myCanvas{
-  float: right;
-  border: 1px;
-  border-color: white;
-}
-
 a{
   color: white;
 }
@@ -78,4 +72,6 @@ a{
 #divCanvas{
   border: 3px;
   border-color: white;
+  float: right;
+  border-style: solid;
 }
