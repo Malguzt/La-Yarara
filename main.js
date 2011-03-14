@@ -18,7 +18,6 @@ $(document).ready (function(){
 })
 
 function restart(){
-  alert('Perdiste Gil de mierda.');
   myCanvas.clean();
 
   thePoint = new Point(myCanvas, 'green');
@@ -29,8 +28,11 @@ function restart(){
     $('#lives').text(lives);
   } else {
     lives = 3;
-    points = 0;
     $('#lives').text(lives);
+    alert('Perdiste Gil de mierda.');
+    var name = prompt('¿Como te llamas gil?');
+    $.post('honor.php', 'name='+name+'&points='+points);
+    points = 0;
   }
 
   $('#points').text(points);

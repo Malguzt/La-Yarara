@@ -21,7 +21,17 @@ p{
 }
 
 #data{
-  float: right;
+  position: absolute;
+  top: 200px;
+}
+
+#data p{
+  color: green;
+  font-weight: 900;
+}
+
+#lives{
+  color: red;
 }
 
 #pause{
@@ -31,4 +41,41 @@ p{
   top: 200px;
   left: 200px;
   display: none;
+}
+
+#myCanvas{
+  float: right;
+  border: 1px;
+  border-color: white;
+}
+
+a{
+  color: white;
+}
+
+#links{
+  clear: both;
+}
+
+#honorRoll{
+  margin: auto;
+}
+
+#honorRoll td{
+  border: 2px;
+  border-style: double;
+  border-color: white;
+  color: white;
+}
+
+#honorRoll th{
+  border: 3px;
+  border-style: groove;
+  border-color: white;
+  color: white;
+}
+
+#divCanvas{
+  border: 3px;
+  border-color: white;
 }
