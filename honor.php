@@ -15,7 +15,7 @@ and open the template in the editor.
     $file = fopen('honor', 'r');
     $honors = json_decode(fread($file, $fileSize));
     fclose($file);
-    if (isset($_POST['points']) && isset($_POST['name'])) {
+    if ($_SERVER['REMOTE_ADDR'] == "127.0.0.1" && isset($_POST['points']) && isset($_POST['name'])) {
       if (empty($honors)) {
         $honors = array();
         echo 'Nada de nada';
