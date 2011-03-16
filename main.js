@@ -4,6 +4,11 @@ var myCanvas;
 var pause = false;
 var lives = 3;
 var points = 0;
+var apples = 0;
+var loops = 0;
+var touchs = 0;
+var speed = 150;
+var intervalId;
 
 $(document).ready (function(){
   //Recibimos el elemento canvas
@@ -12,7 +17,7 @@ $(document).ready (function(){
     //Si tengo el contexto
     thePoint = new Point(myCanvas, 'green');
     theSnake = new Snake(myCanvas, '#456');
-    setInterval("mainLoop()", 100);
+    intervalId = setInterval("mainLoop()", speed);
   }
   $('#lives').text(lives);
 })
@@ -26,6 +31,7 @@ function restart(){
   if(lives > 1){
     lives--;
     $('#lives').text(lives);
+    loops = 0;
   } else {
     lives = 3;
     $('#lives').text(lives);
@@ -44,9 +50,21 @@ function mainLoop(){
     $('#pause').hide('slow');
     myCanvas.clean();
     if(thePoint.areYou(theSnake.getX(), theSnake.getY())){
-      points += theSnake.length();
+      apples++;
+
+      points += theSnake.length() + (200 - speed) - loops - touchs;
+      points = (points > 0)? points: 0;
+      touchs = 0;
+      loops = 0;
       theSnake.eat();
       theSnake.move();
+
+
+      if(speed > 10 && loops % 3 == 0){
+        speed--;
+        clearInterval(intervalId);
+        intervalId = setInterval("mainLoop()", speed);
+      }
 
       thePoint = new Point(myCanvas, 'green');
 
@@ -58,6 +76,7 @@ function mainLoop(){
     theSnake.checkTail();
     theSnake.move();
     theSnake.paint();
+    loops++;
   } else {
     $('#pause').show('slow');
   }
@@ -83,6 +102,7 @@ $(document).keydown(function(event){
       break;
   }
   if(direction){
+    touchs++;
     theSnake.setDirection(direction);
   }
 });
