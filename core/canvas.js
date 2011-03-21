@@ -1,17 +1,29 @@
+/**
+ * @class Canvas
+ * @param idCanvas CSS ID of the canva element.
+ * @param dimensions
+ */
 var Canvas = function(idCanvas, dimensions){
-  this.element = $("#" + idCanvas);
-  if(this.element[0] && this.element[0].getContext){
-    this.context =  this.element[0].getContext(dimensions+'d');
+  this.element = $("#" + idCanvas); // Seeking the canvas element.
+
+  if(this.element[0] && this.element[0].getContext){ //If exist the context.
+    this.context =  this.element[0].getContext(dimensions+'d'); //Saving the context
+    
     if(!this.context){
       alert('No se pudo crear el contexto de '+dimensions+' dimensiones.');
-    }
+    }//End if
+
   } else {
     alert('Elemento canvas no encontrado');
-  }
+  } //End if
 }
 
+/**
+ * Draw a clean rectangle with size of the canvas.
+ * @return clearRect return.
+ */
 Canvas.prototype.clean = function(){
   if(this){
-    this.context.clearRect(0,0,this.element.width(),this.element.height());
-  }
-}
+    return this.context.clearRect(0,0,this.element.width(),this.element.height());
+  } //End if
+}//End method

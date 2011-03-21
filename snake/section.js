@@ -1,10 +1,18 @@
+/**
+ * Snake section.
+ * @Class Section
+ * @param canvas Canvas object
+ * @param color Color in the CSS format.
+ * @param x X Position
+ * @param y Y Position
+ */
 var Section = function(canvas, color, x, y){
   this.x = x;
   this.y = y;
   this.color = color;
   this.canvas = canvas;
-  this.nextSection = null;
-  this.prevMove = null;
+  this.nextSection = null; //The section is a list.
+  this.prevMove = null; 
 }
 
 Section.prototype = new Point();
