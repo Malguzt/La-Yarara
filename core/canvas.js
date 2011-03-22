@@ -1,7 +1,7 @@
 /**
  * @class Canvas
- * @param idCanvas CSS ID of the canva element.
- * @param dimensions
+ * @param idCanvas string CSS ID of the canva element.
+ * @param dimensions integer 2 or 3
  */
 var Canvas = function(idCanvas, dimensions){
   this.element = $("#" + idCanvas); // Seeking the canvas element.

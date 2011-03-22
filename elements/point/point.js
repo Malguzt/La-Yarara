@@ -2,8 +2,8 @@
  * @Class Point
  * @param canvas Canvas object.
  * @param color Color for the point.
- * @param x X position for the point.
- * @param y Y position for the point.
+ * @param x integer X position for the point.
+ * @param y integer Y position for the point.
  */
 var Point = function(canvas, color, x, y){
   if(!x){
@@ -22,7 +22,7 @@ var Point = function(canvas, color, x, y){
 
 /**
  * Draw the poin in the canvas.
- * @return It self
+ * @return Point It self
  */
 Point.prototype.paint = function(){
   if(this.visible){
@@ -34,7 +34,7 @@ Point.prototype.paint = function(){
 
 /**
  * Change the visibility of the point and paint it.
- * @return Paint return.
+ * @return Point Paint return.
  */
 Point.prototype.blink = function(){
   this.visible = !this.visible;
@@ -43,8 +43,8 @@ Point.prototype.blink = function(){
 
 /**
  * Check if the point is in the given coordinates.
- * @param x X coordinate.
- * @param y Y coordinate.
+ * @param x integer X coordinate.
+ * @param y integer Y coordinate.
  * @return boolean True if the point is in this coordinates.
  */
 Point.prototype.areYou = function(x, y){
