@@ -1,10 +1,8 @@
-Point = Backbone.View.extend({
+Section = Point.extend({
 	el: $('body'),
 
 	initialize: function(options){
-		_.bindAll(this, 'render', 'areYou');
-
-		this.listenTo(environment, 'change:loops', this.render);
+		_.bindAll(this, 'render', 'blink', 'areYou');
 
 		if(this.options.x){
 			this.x = this.options.x;
@@ -20,14 +18,20 @@ Point = Backbone.View.extend({
 		this.color = this.options.color;
 		this.canvas = this.options.canvas;
 
+		this.visible = true;
+
 		this.render();
 	},
 
 	render: function(){
-		if(environment.get('loops') % 2 == 0){
+		if(this.visible){
 	 		this.canvas.context.fillStyle = this.color; //Defining the drawing color.
 	  	this.canvas.context.fillRect(this.x, this.y, 10 ,10);
 		}
+	},
+
+	blink: function(){
+		this.visible = !this.visible;
 	},
 
 	areYou: function(options){
